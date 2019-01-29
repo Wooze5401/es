@@ -1,5 +1,12 @@
 {
     "name": "wooze/es",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damian Wooze",
+            "email": "damianwoo1994@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Wooze\\Es\\": "src"
@@ -7,5 +14,12 @@
     },
     "require": {
         "elasticsearch/elasticsearch": "~6.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wooze\\Es\\ServiceProvider"
+            ]
+        }
     }
 }

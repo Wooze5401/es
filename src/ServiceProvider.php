@@ -15,7 +15,12 @@ use Elasticsearch\ClientBuilder as ESClientBuilder;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    protected $defer = true;
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__.'/Config/es_indices.php' => config_path('es_indices.php'),
+        ]);
+    }
 
     public function register()
     {
