@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE
  */
 
-namespace Woo\Es;
+namespace Wooze\Es;
 
 use Elasticsearch\ClientBuilder as ESClientBuilder;
 
