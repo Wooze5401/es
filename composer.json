@@ -1,7 +1,11 @@
 {
+    "name": "wooze/es",
     "autoload": {
         "psr-4": {
             "Wooze\\Es\\": "src"
         }
+    },
+    "require": {
+        "elasticsearch/elasticsearch": "~6.0"
     }
 }
