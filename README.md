@@ -8,6 +8,9 @@
 ```shell
 $ composer require wooze/es
 ```
+```
+$ php artisan vendor:publish --provider=Wooze\Es\ServiceProvider
+```
 
 ## Usage
 

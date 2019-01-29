@@ -1,6 +1,6 @@
 <?php
 
-namespace Wooze\Models;
+namespace Wooze\Es\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

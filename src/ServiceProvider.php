@@ -12,6 +12,8 @@
 namespace Wooze\Es;
 
 use Elasticsearch\ClientBuilder as ESClientBuilder;
+use Wooze\Es\Commands\Migrate;
+use Wooze\Es\Commands\Sync;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -32,5 +34,20 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
             return $builder->build();
         });
+
+        $this->registerCommands();
+    }
+
+    protected function registerCommands()
+    {
+        $this->commands([
+            Migrate::class,
+            Sync::class,
+        ]);
+    }
+
+    protected function mergeConfigs()
+    {
+        $this->mergeConfigFrom(__DIR__.'Config/database.php', 'database');
     }
 }
