@@ -48,6 +48,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     protected function mergeConfigs()
     {
-        $this->mergeConfigFrom(__DIR__.'Config/database.php', 'database');
+        $this->mergeConfigFrom(__DIR__.'Config/database.php', 'connections');
     }
 }
