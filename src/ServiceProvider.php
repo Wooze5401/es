@@ -21,7 +21,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([
             __DIR__.'/Config/es_indices.php' => config_path('es_indices.php'),
-        ]);
+        ], 'es');
     }
 
     public function register()

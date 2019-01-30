@@ -1,6 +1,6 @@
 <?php
 
-namespace Wooze\Es\SearchBuilders;
+namespace Wooze\Es;
 
 class SearchBuilder
 {
