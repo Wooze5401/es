@@ -24,7 +24,7 @@ class Sync extends Command
         $indices = config('es_indices.indices');
 
         if (!array_key_exists($key, $indices)) {
-            throw new \Exception('Key不存在');
+            throw new \Exception('es_indices中不存在'.$key);
         }
 
         $class = $indices[$key]['model'];

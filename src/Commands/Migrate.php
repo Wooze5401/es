@@ -24,8 +24,7 @@ class Migrate extends Command
         $indices = config('es_indices.indices');
 
         if (!array_key_exists($key, $indices)) {
-            $msg = "config中未配置该类";
-            throw new \Exception($msg);
+            throw new \Exception('es_indices中不存在'.$key);
         }
 
 
