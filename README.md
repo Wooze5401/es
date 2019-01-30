@@ -12,6 +12,37 @@ publish
 ```
 $ php artisan vendor:publish --provider=Wooze\Es\ServiceProvider
 ```
+
+## model
+```
+namespace App\Models;
+use Wooze\Es\Models; 
+ 
+class examle extends EsModels
+{
+    protected $esArray = [
+            'id',
+    ];
+} 
+```
+## config
+```
+?php
+return [
+    'indices' => [
+        'example' => [
+            'name' => '',
+            'properties' => [
+             ],
+            'settings' => [
+            ],
+            'model' => \App\Models\Example::class,
+        ],
+    ]
+];
+```
+
+
 ## builder
 $key is the key in app_indices.php   
 $fields is the array to match, the item could use ^3 to set the weight
