@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "elasticsearch/elasticsearch": "~6.0"
+        "elasticsearch/elasticsearch": "~6.1"
     },
     "extra": {
         "laravel": {
