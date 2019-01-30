@@ -23,7 +23,7 @@ class Sync extends Command
 
         $indices = config('es_indices.indices');
 
-        if (array_key_exists($key, $indices)) {
+        if (!array_key_exists($key, $indices)) {
             throw new \Exception('Key不存在');
         }
 

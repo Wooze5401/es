@@ -8,23 +8,50 @@
 ```shell
 $ composer require wooze/es
 ```
+publish
 ```
 $ php artisan vendor:publish --provider=Wooze\Es\ServiceProvider
 ```
+## builder
+$key is the key in app_indices.php   
+$fields is the array to match, the item could use ^3 to set the weight
+```
+$builder = new Wooze\Es\SearchBuilders($key, $fields);
+```
 
-## Usage
+#### paginate
+$size size of per page   
+$page current num of page, default page = 1
+```
+$builder->paginate($size, $page)
+```
 
-TODO
+#### keywords
+accept string or array
+```
+$builder->keywords($keywords)
+```
+#### sort
+```
+$builder->asc($field)
+$builder->desc($field)
+```
 
-## Contributing
+#### range
+```
+$builder->range($field, $operation, $value)
+```
+#### getParams
+return the array of all param
+```
+$builder->getParams()
+```
 
-You can contribute in one of three ways:
-
-1. File bug reports using the [issue tracker](https://github.com/wooze/es/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/wooze/es/issues).
-3. Contribute new features or update the wiki.
-
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+#### start search
+return the array of id as result
+```
+app('es')->search($builder->gerParams());
+```
 
 ## License
 
