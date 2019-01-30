@@ -26,6 +26,14 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function register()
     {
+        $this->mergeConfigs();
+        $this->bind();
+        $this->registerCommands();
+    }
+
+
+    protected function bind()
+    {
         $this->app->singleton('es', function () {
 
             $builder = ESClientBuilder::create()->setHosts(config('database.elasticsearch.hosts'));
@@ -34,8 +42,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
             return $builder->build();
         });
-
-        $this->registerCommands();
     }
 
     protected function registerCommands()
@@ -48,6 +54,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     protected function mergeConfigs()
     {
-        $this->mergeConfigFrom(__DIR__.'Config/database.php', 'connections');
+        $this->mergeConfigFrom(__DIR__.'Config/database.php', 'database.connection.elasticsearch');
+        $this->mergeConfigFrom(__DIR__.'Config/logging.php', 'logging.channels.es');
     }
 }
